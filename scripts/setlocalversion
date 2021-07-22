@@ -83,11 +83,6 @@ scm_version()
 				echo "+"
 				return
 			fi
-			# Avoid asking git for tag as it could be extremely slow.
-			# We print -g{commitish}.
-			# using exactly 12 hex chars.
-			head="$(echo $head | cut -c1-12)"
-			printf '%s%s' -g $head
 		fi
 
 		commit=$(git rev-parse --verify --short=12 HEAD)
